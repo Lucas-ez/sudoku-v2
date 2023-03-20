@@ -1,0 +1,13 @@
+.board {
+  gap: 5px;
+  .row {
+    gap: 5px;
+
+    &:nth-child(3n) {
+      margin-bottom: 1rem;
+    }
+    &:nth-child(9) {
+      margin-bottom: 0rem;
+    }
+  }
+}

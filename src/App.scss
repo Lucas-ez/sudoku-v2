@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  font-family: 'Poppins', sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+// Variables
+
+$max-width: 1280px;
+$clr-black: #000;
+$clr-white: #fff;
+$clr-grey: #bbb;
+$clr-light-grey: #e0e0e0;
+$clr-gold: #f3bd0d;
+
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: unset;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+input, textarea, select{
+  outline: 0;
+  border: none;
+  resize: none;
+  font-family: inherit;
+}
+
+// class container
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+// class flex
+
+.flex{
+  display: flex;
+  align-items: center;
+
+  &-column{ flex-direction: column;}
+  &-center{ justify-content: center;}
+  &-around{justify-content: space-around;}
+  &-between{ justify-content: space-between;}
+  &-start{ justify-content: flex-start;}
+  &-end{ justify-content: flex-end;}
+  &-wrap { flex-wrap: wrap; }
+}
+
+// height and width 
+
+.h-100{
+  height: 100%;
+}
+
+.w-100{
+  width: 100%;
+}
+
+// class text
+
+.text{
+  &-center{text-align: center;}
+  &-start{text-align: left;}
+  &-end{text-align: right;}
+  &-justify{text-align: justify;}
+  &-uppercase{text-transform: uppercase;}
+  &-capitalize{text-transform: capitalize;}
+
+  &-white{color: $clr-white;}
+  &-black{color: $clr-black;}
+  &-grey{color: $clr-grey;}
+  &-light-grey{color: $clr-light-grey;}
+  &-gold{color: $clr-gold;}
+}
+
+// font-size
+
+.fs{
+  &-16{font-size: 16px;}
+  &-20{font-size: 20px;}
+  &-24{font-size: 24px;}
+  &-28{font-size: 28px;}
+  &-32{font-size: 32px;}
+  &-36{font-size: 36px;}
+  &-40{font-size: 40px;}
+  &-44{font-size: 44px;}
+  &-48{font-size: 48px;}
+  &-52{font-size: 52px;}
+  &-56{font-size: 56px;}
+}
+
+// background-color
+
+.bg{
+  &-white{background-color: $clr-white;}
+  &-black{background-color: $clr-black;}
+  &-grey{background-color: $clr-grey;}
+  &-light-grey{background-color: $clr-light-grey;}
+  &-gold{background-color: $clr-gold;}
+}
+
+// font-weights
+
+.fw{
+  &-1{font-weight: 100;}
+  &-2{font-weight: 200;}
+  &-3{font-weight: 300;}
+  &-4{font-weight: 400;}
+  &-5{font-weight: 500;}
+  &-6{font-weight: 600;}
+  &-7{font-weight: 700;}
+  &-8{font-weight: 800;}
+  &-9{font-weight: 900;}
+}
+
+// 100vh
+
+.vh-100 {
+  min-height: 100vh;
+}
