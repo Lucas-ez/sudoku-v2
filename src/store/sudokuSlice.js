@@ -1,28 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { generarSudoku } from './../sudoku'
+import { generarSudoku, resolverSudoku } from './../sudoku'
 
 const sudokuSlice = createSlice({
   name: 'sudoku',
   initialState: {
-    board: []
+    board: null,
+    solvedBoard: null,
+    focus: null
   },
   reducers: {
     setBoard (state, action) {
       state.board = action.payload
     },
+    setSolvedBoard (state, action) {
+      state.solvedBoard = action.payload
+    },
     setCell (state, action) {
-      const [i, j, n] = action.payload
-      state.board[i][j] = n
+      if (!state.focus) return
+
+      const [i, j, n] = [state.focus[0], state.focus[1], +action.payload]
+
+      if (action.payload === 'Backspace') {
+        state.board[i][j] = 0
+      } else if (!isNaN(n)) {
+        state.board[i][j] = n
+      }
+    },
+    setFocus (state, action) {
+      state.focus = action.payload
     }
   }
 })
 
-export const { setCell } = sudokuSlice.actions
+export const { setCell, setBoard, setFocus, setSolvedBoard } = sudokuSlice.actions
 export default sudokuSlice.reducer
 
 export const fetchSudokuByDifficulty = difficulty => {
   return (dispatch) => {
-    // eslint-disable-next-line no-undef
-    dispatch(setBoard(generarSudoku(difficulty)))
+    const auxBoard = generarSudoku(difficulty)
+    dispatch(setBoard(auxBoard))
+    dispatch(setSolvedBoard(resolverSudoku(auxBoard)))
   }
 }

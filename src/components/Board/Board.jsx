@@ -1,24 +1,20 @@
+/* eslint-disable  */
 import './Board.scss'
-import { useEffect, useState } from 'react'
-import { generarSudoku } from './../../sudoku'
 import { Cell } from '..'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchSudokuByDifficulty } from './../../store/sudokuSlice'
 
 const Board = () => {
-  const [board, setBoard] = useState()
-  const [focus, setFocus] = useState()
+  const dispatch = useDispatch()
+  const { board, solvedBoard } = useSelector(state => state.sudoku)
 
   useEffect(() => {
-    setBoard(generarSudoku(2))
-
-    window.addEventListener('keydown', async (e) => {
-      // const auxBoard = [...board]
-      test()
-      console.log(e.key, focus)
-    })
+    dispatch(fetchSudokuByDifficulty(10))
   }, [])
-
-  const test = () => {
-    console.log(focus)
+  
+  const validarCelda = (i, j, n) => {
+    return solvedBoard[i][j] === n; // ver si está completo
   }
 
   return (
@@ -32,9 +28,8 @@ const Board = () => {
                 <Cell
                   key={'cell' + j}
                   content={cell}
-                  setFocus={setFocus}
-                  focus={focus}
                   coords={[i, j]}
+                  validarCelda={validarCelda}
                 />
               ))
             }

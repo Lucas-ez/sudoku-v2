@@ -93,7 +93,15 @@ function esNumeroValido (tablero, fila, columna, numero) {
   return true
 }
 
-export { generarSudoku }
+const resolverSudoku = (t) => {
+  const tablero = [...t].map(row => [...row])
+
+  rellenarTablero(tablero)
+
+  return tablero
+}
+
+export { generarSudoku, resolverSudoku }
 
 // La función `generarSudoku` recibe como parámetro la dificultad, un número entero del 1 al 10. Primero crea un tablero vacío de 9x9 y lo rellena con la diagonal principal con números aleatorios del 1 al 9. Luego llama a la función `rellenarTablero`, que rellena el resto del tablero con backtracking siguiendo las reglas del Sudoku.
 

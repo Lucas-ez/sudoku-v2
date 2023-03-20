@@ -1,19 +1,35 @@
 import './Cell.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { setFocus } from './../../store/sudokuSlice'
+import { useEffect, useState } from 'react'
 
-const Cell = ({ content, setFocus, focus, coords }) => {
-  // Si es distinto de 0 y cumple determinada condición
-  const isOK = content !== 0
-  const isFocused = focus && focus[0] === coords[0] && coords[1] === focus[1]
+const Cell = ({ content, coords, validarCelda }) => {
+  const dispatch = useDispatch()
+  const { focus } = useSelector(state => state.sudoku)
+  const [i, j] = [...coords]
+  const [isOK, setIsOK] = useState()
+  const isFocused = focus && focus[0] === i && j === focus[1]
+
+  useEffect(() => {
+    if (content === 0) return
+
+    if (validarCelda(i, j, content)) {
+      setIsOK('ok')
+    } else {
+      setIsOK('error')
+      // Agregar error
+    }
+  }, [content])
 
   const handleClick = () => {
-    if (isOK) return
+    if (isOK === 'ok') return // mostrar sombreados todos las celdas con el mismo número
 
-    setFocus(coords)
+    dispatch(setFocus(coords))
   }
 
   return (
     <div
-      className={`flex flex-center cell ${isOK && 'cell-ok'} ${isFocused && 'cell-focused'}`}
+      className={`flex flex-center cell ${isOK === 'ok' && 'cell-ok'} ${isOK === 'error' && 'cell-error'} ${isFocused && 'cell-focused'}`}
       onClick={handleClick}
     >
       {content === 0 ? ' ' : content}
