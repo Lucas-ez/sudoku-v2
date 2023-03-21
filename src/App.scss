@@ -160,3 +160,9 @@ input, textarea, select{
   background-color: $clr-dark-grey;
   color: white;
 }
+
+@media (max-width : '600px') {
+  .container {
+    max-width: 360px;
+  }
+}

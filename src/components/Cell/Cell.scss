@@ -52,3 +52,11 @@
     }
   }
 }
+
+@media (max-width : '600px') {
+  .cell {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+}
