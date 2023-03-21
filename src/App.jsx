@@ -1,10 +1,11 @@
 import './App.scss'
-import { Board } from './components'
-import { useEffect } from 'react'
+import { Board, Nav, Keyboard } from './components'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCell } from './store/sudokuSlice'
 
 function App () {
+  const [isDark, setIsDark] = useState(false)
   const dispatch = useDispatch()
 
   const handleKeyPress = e => {
@@ -16,9 +17,13 @@ function App () {
     // return document.removeEventListener('keydown', handleKeyPress)
   }, [])
 
+  console.log(isDark)
+
   return (
-    <div className='flex flex-column flex-center vh-100'>
+    <div className='w-100 flex flex-column vh-100 container'>
+      <Nav setIsDark={setIsDark} />
       <Board />
+      <Keyboard />
     </div>
   )
 }

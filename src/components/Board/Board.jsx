@@ -1,4 +1,3 @@
-/* eslint-disable  */
 import './Board.scss'
 import { Cell } from '..'
 import { useEffect } from 'react'
@@ -12,9 +11,9 @@ const Board = () => {
   useEffect(() => {
     dispatch(fetchSudokuByDifficulty(10))
   }, [])
-  
+
   const validarCelda = (i, j, n) => {
-    return solvedBoard[i][j] === n; // ver si está completo
+    return solvedBoard[i][j] === n // ver si está completo
   }
 
   return (
