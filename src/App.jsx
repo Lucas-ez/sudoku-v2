@@ -1,13 +1,13 @@
 import './App.scss'
 import { Board, Nav, Keyboard } from './components'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCell } from './store/sudokuSlice'
 
 function App () {
   // agregar modo oscuro
-  const [isDark, setIsDark] = useState(false)
   const dispatch = useDispatch()
+  const darkThemeRef = useRef()
 
   const handleKeyPress = e => {
     dispatch(setCell(e.key))
@@ -16,15 +16,22 @@ function App () {
   const handleVirtualKeyPress = key => {
     dispatch(setCell(key))
   }
+
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
   }, [])
 
+  const handleDarkTheme = () => {
+    darkThemeRef.current.classList.toggle('dark-theme')
+  }
+
   return (
-    <div className='w-100 flex flex-column vh-100 container'>
-      <Nav setIsDark={setIsDark} />
-      <Board />
-      <Keyboard handleVirtualKeyPress={handleVirtualKeyPress} />
+    <div ref={darkThemeRef}>
+      <div className='w-100 flex flex-column vh-100 container'>
+        <Nav handleDarkTheme={handleDarkTheme} />
+        <Board />
+        <Keyboard handleVirtualKeyPress={handleVirtualKeyPress} />
+      </div>
     </div>
   )
 }

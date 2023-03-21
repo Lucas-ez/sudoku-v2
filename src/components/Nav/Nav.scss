@@ -39,8 +39,32 @@ nav {
 
   .nav-error {
     font-size: 20px;
+    font-weight: 600;
     color: $clr-red;
     min-width: 2.4rem;
   }
   
+  .dark-icon {
+    border: 2px solid black;
+    font-size: 24px;
+    padding-inline: 8px;
+    border-radius: 50%;
+  }
+}
+
+.dark-theme {
+  nav {
+    button {
+      color: white;
+    }
+
+    .diff-menu {
+      background-color: $clr-dark-grey;
+    }
+
+    .dark-icon {
+      border-color: white;
+    }
+
+  }
 }

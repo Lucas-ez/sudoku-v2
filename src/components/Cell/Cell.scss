@@ -23,7 +23,7 @@
 
   &-focused {
     border-radius: 2px;
-    border: 2px solid black;
+    border: 3px solid black;
   }
 
   &:nth-child(3n) {
@@ -31,5 +31,24 @@
   }
   &:nth-child(9n) {
     margin-right: 0rem;
+  }
+}
+
+.dark-theme {
+  .cell {
+    border-color: #c0c0c07c;
+    &-ok {
+      background-color: $clr-purple;
+      border-color: $clr-purple;
+    }
+
+    &-error {
+      background-color: $clr-red;
+      border-color: $clr-red;
+    }
+
+    &-focused {
+      border-color: #fff;
+    }
   }
 }

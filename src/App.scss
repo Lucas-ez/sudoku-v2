@@ -17,10 +17,12 @@ $clr-black: #000;
 $clr-white: #fff;
 $clr-grey: #bbb;
 $clr-light-grey: #e0e0e0;
+$clr-dark-grey: #27282d;
 $clr-gold: #f3bd0d;
 
 $clr-green: #76ca6e;
 $clr-red: #cf3d3d;
+$clr-purple: #b879ed;
 
 * {
   margin: 0;
@@ -142,8 +144,19 @@ input, textarea, select{
   width: 100%;
 }
 
-// 100vh
+// 100vh, 100vw
 
 .vh-100 {
   min-height: 100vh;
+}
+
+.vw-100 {
+  min-width: 100vw;
+}
+
+// dark-theme
+
+.dark-theme {
+  background-color: $clr-dark-grey;
+  color: white;
 }

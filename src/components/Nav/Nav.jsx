@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setDifficulty } from '../../store/sudokuSlice'
 
-const Nav = ({ setIsDark }) => {
+const Nav = ({ handleDarkTheme }) => {
   const dispatch = useDispatch()
   const { difficulty, errors } = useSelector(state => state.sudoku)
 
@@ -20,7 +20,7 @@ const Nav = ({ setIsDark }) => {
 
   return (
     <nav className='w-100 flex flex-between'>
-      <button className='fs-20 text-uppercase' onClick={handleDiffRef}>{difficulty}</button>
+      <button className='fs-20 fw-5 text-uppercase' onClick={handleDiffRef}>{difficulty}</button>
       <ul ref={diffRef} className='diff-menu'>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>easy</li>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>normal</li>
@@ -34,9 +34,9 @@ const Nav = ({ setIsDark }) => {
         <i className='fa-solid fa-xmark' />
       </div>
       <span>01:00:12</span>
-      <div onClick={() => setIsDark(isDark => !isDark)}>
+      <button onClick={handleDarkTheme} className='dark-icon'>
         <i className='fa-solid fa-moon' />
-      </div>
+      </button>
     </nav>
   )
 }

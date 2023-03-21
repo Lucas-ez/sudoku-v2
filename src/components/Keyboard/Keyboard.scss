@@ -1,6 +1,11 @@
 .keyboard {
   margin-top: 2rem;
   
+  .fa-keyboard {
+    cursor: pointer;
+    color: #777;
+  }
+
   .hidden {
     display: none;
   }
@@ -38,5 +43,29 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1.6rem;
+  }
+}
+
+.dark-theme {
+  .keyboard {
+    &-numbers {
+    button {
+      background-color: #787878;
+      color: #fff;
+      box-shadow: #ccc 0 0 4px;
+      
+      &:hover {
+        background-color: #f0f0f0;
+        color: #666;
+        box-shadow: #aaa 0px 7px 29px 0px;
+      }
+
+      &:active {
+        background-color: #f0f0f0;
+        color: #666;
+        box-shadow: #aaa 0px 0px 0px 0px;
+      }
+    }
+  }
   }
 }
