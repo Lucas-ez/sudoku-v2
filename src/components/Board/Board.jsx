@@ -15,7 +15,7 @@ const Board = () => {
   const { board, solvedBoard, difficulty } = useSelector(state => state.sudoku)
 
   useEffect(() => {
-    // reinicia la partida
+    // reinicia la partida (resetear errores y timer)
     dispatch(fetchSudokuByDifficulty(mapDifficulty[difficulty]))
   }, [difficulty])
 
