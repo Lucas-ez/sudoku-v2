@@ -1,6 +1,6 @@
 import './Cell.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setFocus } from './../../store/sudokuSlice'
+import { setFocus, incrementErrors } from './../../store/sudokuSlice'
 import { useEffect, useState } from 'react'
 
 const Cell = ({ content, coords, validarCelda }) => {
@@ -19,7 +19,7 @@ const Cell = ({ content, coords, validarCelda }) => {
       setIsOK('ok')
     } else {
       setIsOK('error')
-      // Agregar error
+      dispatch(incrementErrors())
     }
   }, [content])
 

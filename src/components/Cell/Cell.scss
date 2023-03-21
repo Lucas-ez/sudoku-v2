@@ -1,3 +1,5 @@
+@import './../../App.scss';
+
 .cell {
   user-select: none;
 
@@ -8,14 +10,14 @@
   border: 2px solid #c0c0c0;
 
   &-ok {
-    background-color: #76ca6e;
-    border-color: #76ca6e;
+    background-color: $clr-green;
+    border-color: $clr-green;
     color: white;
   }
 
   &-error {
-    background-color: #cf3d3d;
-    border-color: #cf3d3d;
+    background-color: $clr-red;
+    border-color: $clr-red;
     color: #fff;
   }
 

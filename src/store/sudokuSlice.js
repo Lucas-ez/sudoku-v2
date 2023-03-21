@@ -34,13 +34,13 @@ const sudokuSlice = createSlice({
     setDifficulty (state, action) {
       state.difficulty = action.payload
     },
-    addErrors (state) {
-      state.errors++
+    incrementErrors (state) {
+      state.errors = state.errors + 1
     }
   }
 })
 
-export const { setCell, setBoard, setFocus, setSolvedBoard, setDifficulty, addErrors } = sudokuSlice.actions
+export const { setCell, setBoard, setFocus, setSolvedBoard, setDifficulty, incrementErrors } = sudokuSlice.actions
 export default sudokuSlice.reducer
 
 export const fetchSudokuByDifficulty = difficulty => {

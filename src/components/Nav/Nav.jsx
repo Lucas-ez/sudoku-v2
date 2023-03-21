@@ -5,7 +5,7 @@ import { setDifficulty } from '../../store/sudokuSlice'
 
 const Nav = ({ setIsDark }) => {
   const dispatch = useDispatch()
-  const { difficulty } = useSelector(state => state.sudoku)
+  const { difficulty, errors } = useSelector(state => state.sudoku)
 
   const diffRef = useRef()
 
@@ -19,7 +19,7 @@ const Nav = ({ setIsDark }) => {
   }
 
   return (
-    <nav className='w-100 flex flex-between nav'>
+    <nav className='w-100 flex flex-between'>
       <button className='fs-20 text-uppercase' onClick={handleDiffRef}>{difficulty}</button>
       <ul ref={diffRef} className='diff-menu'>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>easy</li>
@@ -29,9 +29,9 @@ const Nav = ({ setIsDark }) => {
           <i className='fa-solid fa-xmark' />
         </li>
       </ul>
-      <div>
+      <div className='nav-error flex flex-between' style={{ opacity: (errors === 0) ? '0' : '1' }}>
+        <span>{errors}</span>
         <i className='fa-solid fa-xmark' />
-        <span>12</span>
       </div>
       <span>01:00:12</span>
       <div onClick={() => setIsDark(isDark => !isDark)}>
