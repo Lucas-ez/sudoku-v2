@@ -19,9 +19,10 @@ $clr-grey: #bbb;
 $clr-light-grey: #e0e0e0;
 $clr-gold: #f3bd0d;
 
-*,
-*::after,
-*::before{
+$clr-green: green;
+$clr-red: red;
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

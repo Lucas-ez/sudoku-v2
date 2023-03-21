@@ -4,13 +4,20 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSudokuByDifficulty } from './../../store/sudokuSlice'
 
+const mapDifficulty = {
+  easy: 6,
+  normal: 10,
+  hard: 12
+}
+
 const Board = () => {
   const dispatch = useDispatch()
-  const { board, solvedBoard } = useSelector(state => state.sudoku)
+  const { board, solvedBoard, difficulty } = useSelector(state => state.sudoku)
 
   useEffect(() => {
-    dispatch(fetchSudokuByDifficulty(10))
-  }, [])
+    // reinicia la partida
+    dispatch(fetchSudokuByDifficulty(mapDifficulty[difficulty]))
+  }, [difficulty])
 
   const validarCelda = (i, j, n) => {
     return solvedBoard[i][j] === n // ver si está completo

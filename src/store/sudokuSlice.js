@@ -6,7 +6,9 @@ const sudokuSlice = createSlice({
   initialState: {
     board: null,
     solvedBoard: null,
-    focus: null
+    focus: null,
+    difficulty: 'normal',
+    errors: 0
   },
   reducers: {
     setBoard (state, action) {
@@ -28,11 +30,17 @@ const sudokuSlice = createSlice({
     },
     setFocus (state, action) {
       state.focus = action.payload
+    },
+    setDifficulty (state, action) {
+      state.difficulty = action.payload
+    },
+    addErrors (state) {
+      state.errors++
     }
   }
 })
 
-export const { setCell, setBoard, setFocus, setSolvedBoard } = sudokuSlice.actions
+export const { setCell, setBoard, setFocus, setSolvedBoard, setDifficulty, addErrors } = sudokuSlice.actions
 export default sudokuSlice.reducer
 
 export const fetchSudokuByDifficulty = difficulty => {

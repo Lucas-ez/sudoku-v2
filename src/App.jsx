@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setCell } from './store/sudokuSlice'
 
 function App () {
+  // agregar modo oscuro
   const [isDark, setIsDark] = useState(false)
   const dispatch = useDispatch()
 
@@ -16,8 +17,6 @@ function App () {
     document.addEventListener('keydown', handleKeyPress)
     // return document.removeEventListener('keydown', handleKeyPress)
   }, [])
-
-  console.log(isDark)
 
   return (
     <div className='w-100 flex flex-column vh-100 container'>

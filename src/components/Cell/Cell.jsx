@@ -11,7 +11,9 @@ const Cell = ({ content, coords, validarCelda }) => {
   const isFocused = focus && focus[0] === i && j === focus[1]
 
   useEffect(() => {
-    if (content === 0) return
+    if (content === 0) {
+      return setIsOK(null)
+    }
 
     if (validarCelda(i, j, content)) {
       setIsOK('ok')
