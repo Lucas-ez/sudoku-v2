@@ -13,6 +13,9 @@ function App () {
     dispatch(setCell(e.key))
     // puedo agregar acá el cambiar el focus con cursores
   }
+  const handleVirtualKeyPress = key => {
+    dispatch(setCell(key))
+  }
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
     // return document.removeEventListener('keydown', handleKeyPress)
@@ -22,7 +25,7 @@ function App () {
     <div className='w-100 flex flex-column vh-100 container'>
       <Nav setIsDark={setIsDark} />
       <Board />
-      <Keyboard />
+      <Keyboard handleVirtualKeyPress={handleVirtualKeyPress} />
     </div>
   )
 }

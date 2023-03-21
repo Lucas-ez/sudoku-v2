@@ -20,7 +20,7 @@ const Nav = ({ setIsDark }) => {
 
   return (
     <nav className='w-100 flex flex-between nav'>
-      <span className='text-uppercase' onClick={handleDiffRef}>{difficulty}</span>
+      <button className='fs-20 text-uppercase' onClick={handleDiffRef}>{difficulty}</button>
       <ul ref={diffRef} className='diff-menu'>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>easy</li>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>normal</li>

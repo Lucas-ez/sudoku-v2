@@ -1,0 +1,42 @@
+.keyboard {
+  margin-top: 2rem;
+  
+  .hidden {
+    display: none;
+  }
+
+  &-numbers {
+    display: none;
+    button {
+      font-size: 24px;
+      font-weight: 600;
+      width: 3rem;
+      height: 4rem;
+
+      border-radius: 12px;
+      background-color: white;
+      color: #888;
+      box-shadow: #888 0 0 8px;
+      transition: all .3s ease;
+      
+      &:hover {
+        background-color: #aaa;
+        color: hsl(0, 0%, 100%);
+        box-shadow: #888 0px 7px 29px 0px;
+      }
+
+      &:active {
+        background-color: #aaa;
+        color: white;
+        box-shadow: #aaa 0px 0px 0px 0px;
+        transform: translateY(2px);
+      }
+    }
+  }
+
+  &-expanded {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.6rem;
+  }
+}
