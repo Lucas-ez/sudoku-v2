@@ -3,6 +3,10 @@
 nav {
   padding-block: 1rem;
 
+  .fa-repeat {
+    margin-left: .4rem;
+  }
+
   .diff-menu {
     position: fixed;
     top: 0;
@@ -45,10 +49,15 @@ nav {
   }
   
   .dark-icon {
-    border: 2px solid black;
     font-size: 24px;
-    padding-inline: 8px;
-    border-radius: 50%;
+    width: 50px;
+
+    .fa-moon {
+      display: inline;
+    }
+    .fa-sun {
+      display: none;
+    }
   }
 }
 
@@ -64,6 +73,14 @@ nav {
 
     .dark-icon {
       border-color: white;
+
+      .fa-moon {
+        display: none;
+      }
+
+      .fa-sun {
+        display: inline;
+      }
     }
 
   }

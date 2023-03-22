@@ -20,7 +20,10 @@ const Nav = ({ handleDarkTheme }) => {
 
   return (
     <nav className='w-100 flex flex-between'>
-      <button className='fs-20 fw-5 text-uppercase' onClick={handleDiffRef}>{difficulty}</button>
+      <button className='fs-20 fw-5 text-uppercase' onClick={handleDiffRef}>
+        {difficulty}
+        <i className='fa-solid fa-repeat' />
+      </button>
       <ul ref={diffRef} className='diff-menu'>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>easy</li>
         <li onClick={handleChangeDifficulty} className='text-uppercase'>normal</li>
@@ -36,6 +39,7 @@ const Nav = ({ handleDarkTheme }) => {
       <span>01:00:12</span>
       <button onClick={handleDarkTheme} className='dark-icon'>
         <i className='fa-solid fa-moon' />
+        <i className='fa-solid fa-sun' />
       </button>
     </nav>
   )
