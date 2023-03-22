@@ -2,7 +2,7 @@ import './Board.scss'
 import { Cell } from '..'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSudokuByDifficulty } from './../../store/sudokuSlice'
+import { fetchSudokuByDifficulty, setErrors } from './../../store/sudokuSlice'
 
 const mapDifficulty = {
   easy: 6,
@@ -16,6 +16,7 @@ const Board = () => {
 
   useEffect(() => {
     // reinicia la partida (resetear errores y timer)
+    dispatch(setErrors(0))
     dispatch(fetchSudokuByDifficulty(mapDifficulty[difficulty]))
   }, [difficulty])
 
