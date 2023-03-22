@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setDifficulty } from '../../store/sudokuSlice'
 
-const Nav = ({ handleDarkTheme }) => {
+const Nav = ({ handleDarkTheme, timer }) => {
   const dispatch = useDispatch()
   const { difficulty, errors } = useSelector(state => state.sudoku)
 
@@ -36,7 +36,11 @@ const Nav = ({ handleDarkTheme }) => {
         <span>{errors}</span>
         <i className='fa-solid fa-xmark' />
       </div>
-      <span>01:00:12</span>
+      <span className='timer'>
+        <span>{(timer > 3600) ? Math.floor(timer / 3600) + ':' : ''}</span>
+        <span>{('0' + (Math.floor(timer / 60)) % 60).slice(-2)}:</span>
+        <span>{('0' + timer % 60).slice(-2)}</span>
+      </span>
       <button onClick={handleDarkTheme} className='dark-icon'>
         <i className='fa-solid fa-moon' />
         <i className='fa-solid fa-sun' />

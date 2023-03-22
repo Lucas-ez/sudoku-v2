@@ -1,12 +1,13 @@
 import './App.scss'
 import { Board, Nav, Keyboard } from './components'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCell } from './store/sudokuSlice'
 
 function App () {
   const dispatch = useDispatch()
   const darkThemeRef = useRef()
+  const [timer, setTimer] = useState(0)
 
   const handleKeyPress = e => {
     dispatch(setCell(e.key))
@@ -27,8 +28,8 @@ function App () {
   return (
     <div ref={darkThemeRef}>
       <div className='w-100 flex flex-column vh-100 container'>
-        <Nav handleDarkTheme={handleDarkTheme} />
-        <Board />
+        <Nav handleDarkTheme={handleDarkTheme} timer={timer} />
+        <Board setTimer={setTimer} />
         <Keyboard handleVirtualKeyPress={handleVirtualKeyPress} />
       </div>
     </div>
