@@ -2,7 +2,7 @@ import './Board.scss'
 import { Cell } from '..'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSudokuByDifficulty, setErrors, setFocus } from './../../store/sudokuSlice'
+import { fetchSudokuByDifficulty, setErrors } from './../../store/sudokuSlice'
 import { buscarCasillaVacia } from '../../sudoku'
 
 const mapDifficulty = {
