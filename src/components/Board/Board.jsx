@@ -21,7 +21,10 @@ const Board = () => {
   }, [difficulty])
 
   const validarCelda = (i, j, n) => {
-    return solvedBoard[i][j] === n // ver si está completo
+    const isValida = solvedBoard[i][j] === n
+    // además, ver si board esta completo para parar el timer y sacar el focus
+
+    return isValida // ver si está completo
   }
 
   return (

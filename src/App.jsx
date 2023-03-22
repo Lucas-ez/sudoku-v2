@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import { setCell } from './store/sudokuSlice'
 
 function App () {
-  // agregar modo oscuro
   const dispatch = useDispatch()
   const darkThemeRef = useRef()
 
