@@ -23,15 +23,19 @@ const sudokuSlice = createSlice({
 
       if (action.payload === 'ArrowUp') {
         state.focus[0] = (state.focus[0] - 1 + 9) % 9
+        state.focusValue = state.board[state.focus[0]][state.focus[1]]
       }
       if (action.payload === 'ArrowDown') {
         state.focus[0] = (state.focus[0] + 1) % 9
+        state.focusValue = state.board[state.focus[0]][state.focus[1]]
       }
       if (action.payload === 'ArrowLeft') {
         state.focus[1] = (state.focus[1] - 1 + 9) % 9
+        state.focusValue = state.board[state.focus[0]][state.focus[1]]
       }
       if (action.payload === 'ArrowRight') {
         state.focus[1] = (state.focus[1] + 1) % 9
+        state.focusValue = state.board[state.focus[0]][state.focus[1]]
       }
 
       const [i, j, n] = [state.focus[0], state.focus[1], +action.payload]
